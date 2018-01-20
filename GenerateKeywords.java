@@ -7,12 +7,14 @@ public class GenerateKeywords {
 
 	}
 	
-	public void removeSpecialChar(ArrayList<String> text) {
+	public ArrayList<String> removeSpecialChar(ArrayList<String> text) {
+		ArrayList<String> result = new ArrayList<String>();
 		int cursor = 0;
 		while (cursor < text.size()) {
-			(text.get(cursor)).replaceAll("[,.!?:;]"," ");
+			result.add((text.get(cursor)).replaceAll("[^a-zA-Z0-9]"," "));
 			cursor++;
 		}
+		return result;
 	}
 	
 	public ArrayList<String> splitToWords(ArrayList<String> text) {
