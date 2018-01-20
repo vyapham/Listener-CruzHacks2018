@@ -27,7 +27,7 @@ public class Listener {
 	public static void main(String[] args) {
 		/****** Start of ONE QUOTE PER DAY feature test *****/
 		ArrayList<String> quotes = new ArrayList<String>();
-		String quotesFileName = "quotes.txt";
+		String quotesFileName = "quotes.txt"; // could use other names
 		boolean start = true;
 		
 		int sampleHour = 12;
@@ -66,7 +66,7 @@ public class Listener {
 		// Comment this part out to test the "ONE QUOTE EVERY MORNING" feature
 		ArrayList<String> temp = new ArrayList<String>();
 		ArrayList<String> keywords = new ArrayList<String>();
-		String speechFileName = "userSpeech.txt";
+		String speechFileName = "userSpeech.txt"; // could use other names
 		
 		GenerateKeywords gk = new GenerateKeywords();
 		
