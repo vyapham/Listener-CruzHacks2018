@@ -1,31 +1,39 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Listener {
-	public void quotes()
-		Scanner in = null;
-		PrintWriter out = null;
-		String line = null;
-		String[] token = null;
-		int i, n, lineNumber = 0;
-
-		if(args.length < 2){
-		 System.err.println("Usage: FileIO infile outfile");
-		 System.exit(1);
+	public void quotesInput(ArrayList<String> quotes, String fileName) {
+		try {
+			File file = new File(fileName);
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			// StringBuffer stringBuffer = new StringBuffer();
+			String line = null;
+	
+			while ((line = bufferedReader.readLine()) != null) {
+				quotes.add(line);
+			}
+			fileReader.close();
 		}
-
-		in = new Scanner(new File(args[0]));
-		out = new PrintWriter(new FileWriter(args[1]));
-
-		while( in.hasNextLine() ){
-		 lineNumber++;
-		 line = in.nextLine()+" ";    // add extra space so split works right
-		 token = line.split("\\s+");  // split line around white space
-		 n = token.length;
-		 out.println("Line "+lineNumber+" contains "+n+" token"+(n==1?"":"s")+":");
-		 for(i=0; i<n; i++){
-		    out.println(token[i]);
-		 }
-		 out.println();
+		catch (IOException e) {
+			e.printStackTrace();
 		}
+	}
 
-		in.close();
-		out.close();
+
+	public static void main(String[] args) {
+		ArrayList<String> quotes = new ArrayList<String>();
+		String fileName = "";
+		
+		int sampleHour = 8;
+		int sampleMinute = 00;
+		int sampleSecond = 00;
+		
+		PrintQuote p = new PrintQuote(sampleHour, sampleMinute, sampleSecond);
+		
+		// ........
+	}
 }
