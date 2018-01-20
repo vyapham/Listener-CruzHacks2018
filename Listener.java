@@ -66,13 +66,18 @@ public class Listener {
 		// Comment this part out to test the "ONE QUOTE EVERY MORNING" feature
 		ArrayList<String> temp = new ArrayList<String>();
 		ArrayList<String> keywords = new ArrayList<String>();
-		String speechFileName = "";
+		String speechFileName = "userSpeech.txt";
 		
 		GenerateKeywords gk = new GenerateKeywords();
 		
 		readInput(temp, speechFileName);
-		gk.removeSpecialChar(temp);
+
 		
 		keywords = gk.splitToWords(temp);
+		keywords = gk.removeSpecialChar(keywords);
+		
+		for (int i = 0; i < keywords.size(); i++) {
+			System.out.println(keywords.get(i));
+		}
 	}
 }
