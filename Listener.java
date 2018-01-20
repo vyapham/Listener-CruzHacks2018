@@ -27,11 +27,11 @@ public class Listener {
 	public static void main(String[] args) {
 		ArrayList<String> quotes = new ArrayList<String>();
 		String fileName = "quotes.txt";
-		boolean start = false;
+		boolean start = true;
 		
-		int sampleHour = 8;
-		int sampleMinute = 00;
-		int sampleSecond = 00;
+		int sampleHour = 12;
+		int sampleMinute = 46;
+		int sampleSecond = 0;
 		
 		PrintQuote p = new PrintQuote(sampleHour, sampleMinute, sampleSecond);
 		quotesInput(quotes, fileName);
@@ -42,10 +42,20 @@ public class Listener {
 			if (cursor >= quotes.size()) {
 				cursor = 0;
 			}
-			if (p.equals(p)) {
-				System.out.println(quotes.get(cursor));
+			if (!p.equals(p)) {
+				continue;
 			}
-			// What if users decide to disable this feature
+			System.out.println(quotes.get(cursor));
+			cursor++;
+			start = false;
+			
+			while (!start) {
+				if (!p.equals(p)) {
+					start = true;
+				}
+			}
+			
 		}
+		// What if users decide to disable this feature ???
 	}
 }
