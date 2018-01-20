@@ -66,7 +66,7 @@ public class PrintQuote extends Clock {
 		}
 		else {
 			PrintQuote alarm = (PrintQuote) o;
-			LocalTime currentTime = null;
+			LocalTime currentTime = LocalTime.now();
 			return (currentTime.getHour() == alarm.getAlarmHour()) 
 					&& (currentTime.getMinute() == alarm.getAlarmMinute())
 					&& (currentTime.getSecond() == alarm.getAlarmSecond());
@@ -74,6 +74,10 @@ public class PrintQuote extends Clock {
 
 	}
 
+	public void resetAlarm() {
+		
+	}
+	
 	public ZoneId getZone() {
 		// TODO Auto-generated method stub
 		return null;
