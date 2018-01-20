@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Listener {
-	public static void quotesInput(ArrayList<String> quotes, String fileName) {
+	public static void readInput(ArrayList<String> quotes, String fileName) {
 		try {
 			File file = new File(fileName);
 			FileReader fileReader = new FileReader(file);
@@ -25,8 +25,9 @@ public class Listener {
 
 
 	public static void main(String[] args) {
+		/****** Start of ONE QUOTE PER DAY feature test *****/
 		ArrayList<String> quotes = new ArrayList<String>();
-		String fileName = "quotes.txt";
+		String quotesFileName = "quotes.txt";
 		boolean start = true;
 		
 		int sampleHour = 12;
@@ -34,7 +35,7 @@ public class Listener {
 		int sampleSecond = 0;
 		
 		PrintQuote p = new PrintQuote(sampleHour, sampleMinute, sampleSecond);
-		quotesInput(quotes, fileName);
+		readInput(quotes, quotesFileName);
 		
 		// ......
 		int cursor = 0;
@@ -57,5 +58,21 @@ public class Listener {
 			
 		}
 		// What if users decide to disable this feature ???
+		
+		/****** End of test ******/
+		
+		/*****************/
+		// Assuming we already generated a text file from the user's speech
+		// Comment this part out to test the "ONE QUOTE EVERY MORNING" feature
+		ArrayList<String> temp = new ArrayList<String>();
+		ArrayList<String> keywords = new ArrayList<String>();
+		String speechFileName = "";
+		
+		GenerateKeywords gk = new GenerateKeywords();
+		
+		readInput(temp, speechFileName);
+		gk.removeSpecialChar(temp);
+		
+		keywords = gk.splitToWords(temp);
 	}
 }
