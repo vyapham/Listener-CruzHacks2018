@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 
 public class GenerateKeywords {
-	Listener listener = new Listener();
+	// Listener listener = new Listener();
 	
 	public GenerateKeywords() {
-
-	}
-	
-	public GenerateKeywords(String name) {
 
 	}
 	
