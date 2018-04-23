@@ -36,8 +36,7 @@ public class Listener {
 		
 		PrintQuote p = new PrintQuote(sampleHour, sampleMinute, sampleSecond);
 		readInput(quotes, quotesFileName);
-		
-		// ......
+	
 		int cursor = 0;
 		while (start) {
 			if (cursor >= quotes.size()) {
@@ -71,7 +70,6 @@ public class Listener {
 		GenerateKeywords gk = new GenerateKeywords();
 		
 		readInput(temp, speechFileName);
-
 		
 		keywords = gk.splitToWords(temp);
 		keywords = gk.removeSpecialChar(keywords);
